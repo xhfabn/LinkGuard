@@ -1,10 +1,18 @@
 package com.jiawei.wu.dto;
 
 import com.jiawei.wu.enums.RpcRespStatus;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
-public class RpcResp<T> {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class RpcResp<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String reqId;
