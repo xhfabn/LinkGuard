@@ -10,10 +10,17 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 @Slf4j
-public class socketRpcClient implements RpcClient {
+public class SocketRpcClient implements RpcClient {
+    private final String host;
+    private final int port;
+    public SocketRpcClient(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
     @Override
     public RpcResp<?> sendReq(RpcReq req) {
-        try(Socket socket = new Socket("127.0.0.1",8888)) {
+        try(Socket socket = new Socket(host,port)) {
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject(req);
             outputStream.flush();
