@@ -1,6 +1,6 @@
-package com.jiawei.wu.dto;
+package com.jiawei.wu.rpc.dto;
 
-import com.jiawei.wu.enums.RpcRespStatus;
+import com.jiawei.wu.rpc.enums.RpcRespStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

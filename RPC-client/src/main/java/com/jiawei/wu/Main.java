@@ -1,11 +1,9 @@
 package com.jiawei.wu;
 
-import com.jiawei.wu.dto.RpcReq;
-import com.jiawei.wu.dto.RpcResp;
-import com.jiawei.wu.transmission.RpcClient;
-import com.jiawei.wu.transmission.socket.client.SocketRpcClient;
-
-import java.net.Socket;
+import com.jiawei.wu.rpc.dto.RpcReq;
+import com.jiawei.wu.rpc.dto.RpcResp;
+import com.jiawei.wu.rpc.transmission.RpcClient;
+import com.jiawei.wu.rpc.transmission.socket.client.SocketRpcClient;
 
 public class Main {
     public static void main(String[] args) {

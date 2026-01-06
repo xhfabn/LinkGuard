@@ -1,4 +1,4 @@
-package com.jiawei.wu.dto;
+package com.jiawei.wu.rpc.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,4 +22,10 @@ public class RpcReq implements Serializable {
     private Class<?>[] paramTypes;
     private String version;
     private String group;
+
+    public String rpcServiceName() {
+        return getInterfaceName()
+            + (getVersion() == null ? "" : getVersion())
+            + (getGroup() == null ? "" : getGroup());
+    }
 }

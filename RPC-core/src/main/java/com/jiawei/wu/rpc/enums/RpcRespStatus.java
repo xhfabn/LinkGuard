@@ -1,4 +1,4 @@
-package com.jiawei.wu.enums;
+package com.jiawei.wu.rpc.enums;
 
 
 import lombok.AllArgsConstructor;

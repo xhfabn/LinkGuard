@@ -1,8 +1,8 @@
-package com.jiawei.wu.transmission.socket.client;
+package com.jiawei.wu.rpc.transmission.socket.client;
 
-import com.jiawei.wu.dto.RpcReq;
-import com.jiawei.wu.dto.RpcResp;
-import com.jiawei.wu.transmission.RpcClient;
+import com.jiawei.wu.rpc.dto.RpcReq;
+import com.jiawei.wu.rpc.dto.RpcResp;
+import com.jiawei.wu.rpc.transmission.RpcClient;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.ObjectInputStream;
