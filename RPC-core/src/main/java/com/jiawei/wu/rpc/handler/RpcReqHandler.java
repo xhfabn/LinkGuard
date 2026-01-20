@@ -4,6 +4,8 @@ import com.jiawei.wu.rpc.dto.RpcReq;
 import com.jiawei.wu.rpc.provider.ServiceProvider;
 import lombok.SneakyThrows;
 
+import java.lang.reflect.Method;
+
 public class RpcReqHandler {
     private final ServiceProvider serviceProvider;
 
@@ -16,7 +18,7 @@ public class RpcReqHandler {
         String rpcServiceName = rpcReq.rpcServiceName();
         Object service = serviceProvider.getService(rpcServiceName);
 
-        java.lang.reflect.Method method = service.getClass().getMethod(rpcReq.getMethodName(), rpcReq.getParamTypes());
+        Method method = service.getClass().getMethod(rpcReq.getMethodName(), rpcReq.getParamTypes());
 
         return method.invoke(service, rpcReq.getParams());
     }

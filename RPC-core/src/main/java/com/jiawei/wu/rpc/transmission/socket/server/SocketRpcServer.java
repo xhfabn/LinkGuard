@@ -43,7 +43,6 @@ public class SocketRpcServer implements RpcServer {
 
             Socket socket;
             while ((socket = serverSocket.accept()) != null) {
-                ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
                 executor.submit(new SocketReqHandler(socket, rpcReqHandle));
             }
         } catch (Exception e) {

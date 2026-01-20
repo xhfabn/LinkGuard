@@ -29,6 +29,10 @@ public class SimpleServiceProvider implements ServiceProvider {
 
     @Override
     public Object getService(String rpcServiceName) {
-        return null;
+        if (!SERVICE_CACHE.containsKey(rpcServiceName)) {
+            throw new IllegalArgumentException("找不到对应服务: " + rpcServiceName);
+        }
+
+        return SERVICE_CACHE.get(rpcServiceName);
     }
 }
