@@ -1,11 +1,14 @@
 package com.jiawei.wu.rpc.transmission.socket.server;
 
 import com.jiawei.wu.rpc.config.RpcServiceConfig;
+import com.jiawei.wu.rpc.constant.RpcConstants;
 import com.jiawei.wu.rpc.dto.RpcReq;
 import com.jiawei.wu.rpc.dto.RpcResp;
+import com.jiawei.wu.rpc.factory.SingletonFactory;
 import com.jiawei.wu.rpc.handler.RpcReqHandler;
 import com.jiawei.wu.rpc.provider.ServiceProvider;
 import com.jiawei.wu.rpc.provider.impl.SimpleServiceProvider;
+import com.jiawei.wu.rpc.provider.impl.ZkServiceProvider;
 import com.jiawei.wu.rpc.transmission.RpcServer;
 import com.jiawei.wu.rpc.util.ThreadPoolUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +27,12 @@ public class SocketRpcServer implements RpcServer {
     private final ServiceProvider serviceProvider;
     private final ExecutorService executor;
 
+    public SocketRpcServer() {
+        this(RpcConstants.SERVER_PORT);
+    }
 
     public SocketRpcServer(int port) {
-        this(port,new SimpleServiceProvider());
+        this(port, SingletonFactory.getInstance(ZkServiceProvider.class));
     }
 
     public SocketRpcServer(int port, ServiceProvider serviceProvider) {
